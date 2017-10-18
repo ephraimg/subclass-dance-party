@@ -12,7 +12,7 @@ makeFly.prototype.step = function() {
 makeFly.prototype.lineUp = function() {
   //this.$node.addClass("center");
   if (!this.linedUp) {
-    this.setPosition(600, this.$node.position.bottom);
+    this.setPosition($(window).height() - 250, this.$node.position.bottom);
     this.linedUp = true;
   } else {
     var oldPosition = window.dancerPositions[this.idx];
@@ -54,7 +54,7 @@ makeZoomDancer.prototype.lineUp = function() {
 };
 
 var makeSlideDancer = function(top, left, timeBetweenSteps) {
-  makeDancer.call(this, $(window).height() * 0.7, left, timeBetweenSteps / 2);
+  makeDancer.call(this, $(window).height() - 200, left, timeBetweenSteps / 2);
   this.$node.addClass("slide");
 };
 makeSlideDancer.prototype = Object.create(makeDancer.prototype);
