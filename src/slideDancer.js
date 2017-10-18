@@ -54,7 +54,7 @@ makeZoomDancer.prototype.lineUp = function() {
 };
 
 var makeSlideDancer = function(top, left, timeBetweenSteps) {
-  makeDancer.call(this, $(window).height() * 0.7, left, timeBetweenSteps);
+  makeDancer.call(this, $(window).height() * 0.7, left, timeBetweenSteps / 2);
   this.$node.addClass("slide");
 };
 makeSlideDancer.prototype = Object.create(makeDancer.prototype);
@@ -66,7 +66,7 @@ makeSlideDancer.prototype.step = function() {
   if (Number(nLeft.slice(0, nLeft.length - 2)) > Number($(window).width())) {
     this.$node.css("left", "-20px");
   }
-  this.$node.css("left", "+=10");
+  this.$node.css("left", "+=20");
 };
 
 

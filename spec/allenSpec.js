@@ -6,20 +6,20 @@ describe('makeAllen', function() {
   beforeEach(function() {
     clock = sinon.useFakeTimers();
     allen = new makeAllen(10, 20, timeBetweenSteps);
+    $('body').append(allen.$node);
+    allen.$node.hide();
   });
 
   it('should have a jQuery $node object', function() {
     expect(allen.$node).to.be.an.instanceof(jQuery);
   });
 
-  it('should have an animation css property', function() {
+  it('should have an animation css style', function() {
     expect(allen.$node.css("animation-name")).to.not.equal(void 0);
-    expect(allen.$node.css("animation-name")).to.not.equal(void 0);
-
   });
 
   it('should repeat its animation forever', function() {
-    expect(allen.$node.css("animation-iteration-count")).to.not.equal(void 0);
+    expect(allen.$node.css("animation-iteration-count")).to.equal('infinite');
   });
 
   // it('should change its vertical position', function() {

@@ -21,15 +21,13 @@ describe('makeSlideDancer', function() {
   });
 
   describe('dance', function() {
-    it('should call step at least once per second', function() {
+    it('should call step at least twice per second', function() {
       sinon.spy(slideDancer, 'step');
       expect(slideDancer.step.callCount).to.be.equal(0);
-      clock.tick(timeBetweenSteps); // ? it seems an extra tick is necessary...
-      clock.tick(timeBetweenSteps);
-
+      clock.tick(timeBetweenSteps / 2); // ? it seems an extra tick is necessary...
+      clock.tick(timeBetweenSteps / 2);
       expect(slideDancer.step.callCount).to.be.equal(1);
-
-      clock.tick(timeBetweenSteps);
+      clock.tick(timeBetweenSteps / 2);
       expect(slideDancer.step.callCount).to.be.equal(2);
     });
   });
